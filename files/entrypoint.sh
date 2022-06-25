@@ -1,7 +1,5 @@
 #! /bin/bash
 
-chown -R sevralt:sevralt /home/sevralt
-
 if [ ! -d "/root/.cfg" ]; then
   HD=/root
   
@@ -31,6 +29,7 @@ if [ ! -d "/sevralt/.cfg" ]; then
   echo "" >> $HD/.config/starship.toml
 fi 
 
-mkdir -p /var/run/sshd
+chown -R sevralt:sevralt /home/sevralt
 
+mkdir -p /var/run/sshd
 /usr/sbin/sshd -D
