@@ -27,7 +27,8 @@ COPY files/environment /etc/environment
 # Install starship
 RUN wget -O /tmp/starship-install.sh https://starship.rs/install.sh \
     && chmod +x /tmp/starship-install.sh \
-    && /tmp/starship-install.sh --force
+    && /tmp/starship-install.sh --force \
+    rm -f /tmp/starship-install.sh
 
 # Setup entrypoint
 COPY files/entrypoint.sh /usr/local/sbin/entrypoint.sh
