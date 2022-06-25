@@ -1,7 +1,7 @@
 FROM ubuntu:jammy
 
-LABEL org.opencontainers.image.description="Development Container for @SevralT"
-LABEL org.opencontainers.image.version="0.1.0"
+LABEL org.opencontainers.image.description "Development Container for @SevralT"
+LABEL org.opencontainers.image.version "0.1.0"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
