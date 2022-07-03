@@ -10,10 +10,6 @@ RUN apt-get update \
 RUN apt-get install -y openssh-server
 COPY files/sshd_config /etc/ssh/sshd_config
 
-# Add User
-RUN adduser sevralt --gecos '' --disabled-password --uid 1001
-RUN adduser spectrapulse --gecos '' --disabled-password --uid 1000
-
 # Install dependencies
 RUN apt-get install -y \
     clang build-essential nano git bc bison coreutils ccache curl flex \
@@ -22,6 +18,11 @@ RUN apt-get install -y \
     libsdl1.2-dev curl libssl-dev libxml2 libxml2-utils lzop pngcrush rsync \
     schedtool squashfs-tools xsltproc zip zlib1g-dev manpages man-db tmux gnupg \
     aria2 python-is-python3 htop lm-sensors sudo
+    
+# Add User
+RUN adduser sevralt --gecos '' --disabled-password --uid 1001
+RUN adduser spectrapulse --gecos '' --disabled-password --uid 1000 \
+    && adduser spectrapulse sudo
 
 # Copy default environment variables
 COPY files/environment /etc/environment
