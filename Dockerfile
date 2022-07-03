@@ -11,7 +11,7 @@ RUN apt-get install -y openssh-server
 COPY files/sshd_config /etc/ssh/sshd_config
 
 # Add User
-RUN adduser sevralt --gecos '' --disabled-password
+RUN adduser sevralt --gecos '' --disabled-password --uid 1001
 
 # Install dependencies
 RUN apt-get install -y \
