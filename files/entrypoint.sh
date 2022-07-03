@@ -14,7 +14,7 @@ if [ ! -d "/root/.cfg" ]; then
   echo "disabled = true" >> $HD/.config/starship.toml
 fi 
 
-if [ ! -d "/sevralt/.cfg" ]; then
+if [ ! -d "/home/sevralt/.cfg" ]; then
   HD=/home/sevralt
   
   git clone --bare https://github.com/spectrapulse/dotfiles $HD/.cfg
