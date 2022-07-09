@@ -29,8 +29,8 @@ if [ ! -d "/home/sevralt/.cfg" ]; then
   echo "" >> $HD/.config/starship.toml
 fi 
 
-chown -R sevralt:1001 /home/sevralt
-chown -R spectrapulse:1000 /home/spectrapulse
+#chown -R sevralt:1001 /home/sevralt
+#chown -R spectrapulse:1000 /home/spectrapulse
 
 mkdir -p /var/run/sshd
 /usr/sbin/sshd -D
