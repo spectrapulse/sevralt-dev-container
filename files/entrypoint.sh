@@ -1,7 +1,7 @@
 #! /bin/bash
 
-if [ ! -d "/root/.cfg" ]; then
-  HD=/root
+if [ ! -d "/home/spectrapulse/.cfg" ]; then
+  HD=/home/spectrapulse
   
   git clone --bare https://github.com/spectrapulse/dotfiles $HD/.cfg
   /usr/bin/git --git-dir=$HD/.cfg/ --work-tree=$HD checkout -f master
