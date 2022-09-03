@@ -17,7 +17,7 @@ RUN apt-get install -y \
     lib32readline-dev lib32z1-dev liblz4-tool vim libncurses5 libncurses5-dev \
     libsdl1.2-dev curl libssl-dev libxml2 libxml2-utils lzop pngcrush rsync \
     schedtool squashfs-tools xsltproc zip zlib1g-dev manpages man-db tmux gnupg \
-    aria2 python-is-python3 htop lm-sensors sudo
+    aria2 python-is-python3 htop lm-sensors sudo screen
     
 # Add User
 RUN adduser sevralt --gecos '' --disabled-password --uid 1001
