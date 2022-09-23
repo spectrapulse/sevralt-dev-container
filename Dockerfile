@@ -22,7 +22,7 @@ RUN yes | unminimize \
   g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev \
   lib32z1-dev liblz4-tool vim libncurses5 libncurses5-dev libsdl1.2-dev curl libssl-dev libxml2 \
   libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev manpages \
-  man-db tmux gnupg aria2 python-is-python3 htop lm-sensors sudo screen bindfs
+  man-db tmux gnupg aria2 python-is-python3 htop lm-sensors sudo screen
 
 # Setup MISC
 RUN printf 'MAKEFLAGS="-j21"' >> /etc/environment \
@@ -31,14 +31,15 @@ RUN printf 'MAKEFLAGS="-j21"' >> /etc/environment \
  
 
 # Create users
-RUN mkdir -p /mnt/spectrapulse /mnt/sevralt \
- && adduser spectrapulse --gecos '' --uid 1000 \
- && adduser sevralt      --gecos '' --uid 1001 \
- && rm -rf /home/spectrapulse /home/sevralt 
+RUN adduser spectrapulse --gecos '' --uid 1000 --disabled-password \
+ && adduser spectrapulse sudo \
+ && adduser sevralt      --gecos '' --uid 1001 --disabled-password 
 
-VOLUME [ "/mnt/spectrapulse", "/mnt/sevralt", "/etc/ssh" ]
+VOLUME [ "/home/spectrapulse", "/home/sevralt", "/etc/ssh" ]
 
 EXPOSE 22
 
 ENTRYPOINT [ "/entrypoint.sh" ]
-CMD [ "/usr/sbin/sshd", "-D" ]
+
+CMD [ "/usr/sbin/sshd", "-D", "-e" ]
+
