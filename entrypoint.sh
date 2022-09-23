@@ -2,7 +2,6 @@
 set -e 
 
 mkdir -p /home/spectrapulse
-chown 1000:1000 /home/spectrapulse
 bindfs --force-user=spectrapulse \
        --force-group=spectrapulse \
        --create-for-user=1000 \
@@ -13,7 +12,6 @@ bindfs --force-user=spectrapulse \
        /home/spectrapulse
 
 mkdir -p /home/sevralt
-chown 1001:1001 /home/sevralt
 bindfs --force-user=sevralt \
        --force-group=sevralt \
        --create-for-user=1001 \
@@ -23,6 +21,6 @@ bindfs --force-user=sevralt \
        /mnt/sevralt \
        /home/sevralt
 
-printf "TCPKeepAlive yes\nStrictModes no\nPermitTunnel yes\nPermitUserEnvironment yes" > /etc/ssh/sshd_config
+yes | cp -rf /sshd_config /etc/ssh/sshd_config
 
 exec "$@"
