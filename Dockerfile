@@ -32,9 +32,9 @@ RUN printf 'MAKEFLAGS="-j21"' >> /etc/environment \
  
 
 # Create users
-RUN mkdir -p /mnt/spectrapulse /mnt/sevralt \
- && adduser spectrapulse --gecos '' --uid 1000 --disabled-password \
+RUN adduser spectrapulse --gecos '' --uid 1000 --disabled-password \
  && adduser sevralt      --gecos '' --uid 1001 --disabled-password \
+ && adduser spectrapulse sudo \
  && rm -rf /home/spectrapulse /home/sevralt
 
 VOLUME [ "/mnt/spectrapulse", "/mnt/sevralt", "/etc/ssh" ]
