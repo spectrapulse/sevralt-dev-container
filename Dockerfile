@@ -37,7 +37,8 @@ RUN adduser spectrapulse --gecos '' --uid 1000 --disabled-password \
  && adduser spectrapulse sudo \
  && rm -rf /home/spectrapulse /home/sevralt
 
-VOLUME [ "/mnt/spectrapulse", "/mnt/sevralt", "/etc/ssh" ]
+#VOLUME [ "/mnt/spectrapulse", "/mnt/sevralt", "/etc/ssh" ]
+VOLUME [ "/home/spectrapulse", "/home/sevralt", "/etc/ssh" ]
 
 EXPOSE 22
 
