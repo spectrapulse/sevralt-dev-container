@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:focal
 
 COPY ./entrypoint.sh /
 COPY sshd_config /
@@ -6,8 +6,8 @@ COPY sshd_config /
 # Install APT-Fast
 RUN apt-get update \
  && apt-get install -y gnupg2 \
- && printf "deb http://ppa.launchpad.net/apt-fast/stable/ubuntu jammy main" > /etc/apt/sources.list.d/apt-fast.list \
- && printf "deb-src http://ppa.launchpad.net/apt-fast/stable/ubuntu jammy main" >> /etc/apt/sources.list.d/apt-fast.list \
+ && printf "deb http://ppa.launchpad.net/apt-fast/stable/ubuntu focal main" > /etc/apt/sources.list.d/apt-fast.list \
+ && printf "deb-src http://ppa.launchpad.net/apt-fast/stable/ubuntu focal main" >> /etc/apt/sources.list.d/apt-fast.list \
  && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B \
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y apt-fast \
